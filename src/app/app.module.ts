@@ -7,17 +7,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { GroupForm } from '../pages/group-form/group-form';
+import { ElementsForm } from '../pages/elements-form/elements-form';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GroupServiceProvider } from '../providers/group-service/group-service';
+import { ElementServiceProvider } from '../providers/element-service/element-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    GroupForm
+    GroupForm,
+    ElementsForm
   ],
   imports: [
     BrowserModule,
@@ -29,13 +32,15 @@ import { GroupServiceProvider } from '../providers/group-service/group-service';
     MyApp,
     HomePage,
     ListPage,
-    GroupForm
+    GroupForm,
+    ElementsForm
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GroupServiceProvider,
+    ElementServiceProvider,
   ]
 })
 export class AppModule {}
