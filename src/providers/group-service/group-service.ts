@@ -1,23 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
+import { ProviderFunctions } from '../../app/providers';
 
-/*
-  Generated class for the GroupServiceProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
-export class GroupServiceProvider {
-
+export class GroupServiceProvider extends ProviderFunctions{
     private url: string = 'http://localhost:4567/';
-
-    constructor(private http: Http) {
-        //console.log('Hello GroupServiceProvider Provider');
+    constructor(public http: Http) {
+        super(http);
     }
 
   save(group) {
@@ -25,22 +16,7 @@ export class GroupServiceProvider {
       let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options    = new RequestOptions({ headers: headers });
       let body = `group=${group}`;
-      return this.http.post( url, body, options )
-                      .do( this._doResponse )
-                      .map( this._resultResponse )
-                      .catch( this._errorMessage );
-  }
-
-  private _doResponse( res: Response) {
-      //console.log(res);
-  }
-
-  private _resultResponse( res: Response ) {
-      return res.json();
-  }
-
-  private _errorMessage( error: Response ) {
-      return Observable.throw( error.json().error || 'Server error' );
+      return this.saveField(url,body,options);
   }
 
 }
