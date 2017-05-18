@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 /*
   Generated class for the GroupServiceProvider provider.
@@ -11,15 +14,33 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GroupServiceProvider {
 
-  constructor(public http: Http) {
-    console.log('Hello GroupServiceProvider Provider');
-  }
+    private url: string = 'http://localhost:4567/';
+
+    constructor(private http: Http) {
+        //console.log('Hello GroupServiceProvider Provider');
+    }
 
   save(group) {
+      let url = this.url + 'add-group/save';
       let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options    = new RequestOptions({ headers: headers });
       let body = `group=${group}`;
-    return this.http.post('http://localhost:4567/add-group/save', body, options);
+      return this.http.post( url, body, options )
+                      .do( this._doResponse )
+                      .map( this._resultResponse )
+                      .catch( this._errorMessage );
+  }
+
+  private _doResponse( res: Response) {
+      //console.log(res);
+  }
+
+  private _resultResponse( res: Response ) {
+      return res.json();
+  }
+
+  private _errorMessage( error: Response ) {
+      return Observable.throw( error.json().error || 'Server error' );
   }
 
 }

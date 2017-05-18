@@ -8,9 +8,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ElementServiceProvider {
     private url: string = 'http://localhost:4567/';
-  constructor(private http: Http) {
-      //console.log('Hello ElementServiceProvider Provider');
-  }
+    constructor(private http: Http) {
+    //console.log('Hello ElementServiceProvider Provider');
+    }
 
   save(element) {
       let url = this.url + 'elements/save';
