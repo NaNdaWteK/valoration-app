@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ElementServiceProvider } from '../../providers/element-service/element-service';
-import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,7 +10,12 @@ import { AlertController } from 'ionic-angular';
 })
 export class ElementsForm {
   value;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public elementService: ElementServiceProvider, public alertCtrl: AlertController) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public elementService: ElementServiceProvider,
+      public toastCtrl: ToastController
+  ) {
 
   }
 
@@ -19,26 +24,31 @@ export class ElementsForm {
   }
 
   submit() {
-    this.elementService.save(this.value).subscribe(this.showSuccess.bind(this), this.showError.bind(this));
+    this.elementService.save(this.value).subscribe(element => this.showSuccess(element, 'success'), err => this.showError('Ha habido un error', 'danger'));
   }
 
-  showSuccess(response) {
-      var element = JSON.parse(response._body);
+  showSuccess(element, cssClass) {
       let message = 'You added ' + element.element + ' correctly';
-      let alert = this.alertCtrl.create({
-        title: 'Element added!',
-        subTitle: message,
-        buttons: ['OK']
-    });
-      alert.present();
+
+      let toast = this._generateToast(message,cssClass);
+      toast.present();
   }
-  showError() {
-      let alert = this.alertCtrl.create({
-        title: 'Element not added!',
-        subTitle: 'An error ocurred',
-        buttons: ['OK']
+
+  showError(message: string, cssClass: string = '') {
+
+      let toast = this._generateToast(message, cssClass);
+      toast.present();
+  }
+
+  private _generateToast(message, cssClass) {
+      let toast = this.toastCtrl.create({
+          message: message,
+          duration: 5000,
+          position: 'bottom',
+          cssClass: cssClass
       });
-      alert.present();
+
+      return toast
   }
 
 }
