@@ -3,8 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { GroupForm } from '../pages/group-form/group-form';
 import { ElementsForm } from '../pages/elements-form/elements-form';
 
@@ -14,7 +12,7 @@ import { ElementsForm } from '../pages/elements-form/elements-form';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = GroupForm;
 
   pages: Array<{title: string, component: any}>;
 
@@ -23,8 +21,6 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
       { title: 'Add Group', component: GroupForm },
       { title: 'Add Elements', component: ElementsForm }
     ];
@@ -45,5 +41,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  
+
 }

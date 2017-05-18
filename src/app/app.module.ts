@@ -4,8 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { GroupForm } from '../pages/group-form/group-form';
 import { ElementsForm } from '../pages/elements-form/elements-form';
 
@@ -17,8 +15,6 @@ import { ElementServiceProvider } from '../providers/element-service/element-ser
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
     GroupForm,
     ElementsForm
   ],
@@ -30,8 +26,6 @@ import { ElementServiceProvider } from '../providers/element-service/element-ser
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
     GroupForm,
     ElementsForm
   ],
