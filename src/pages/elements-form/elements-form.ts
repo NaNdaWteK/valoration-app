@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ElementServiceProvider } from '../../providers/element-service/element-service';
 import { ToastController } from 'ionic-angular';
 import { ComponentFunctions } from '../../app/component';
+import { ElementsList } from '../elements-list/elements-list';
 
 @IonicPage()
 @Component({
@@ -20,6 +21,12 @@ export class ElementsForm extends ComponentFunctions{
       super(toastCtrl);
   }
 
+  openElementsListPage(){
+      let id = this.navParams.get('group_id');
+      this.navCtrl.push(ElementsList, {
+          group_id: id
+      });
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ElementsForm');
   }

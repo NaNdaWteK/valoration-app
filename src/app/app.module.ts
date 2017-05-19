@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { GroupForm } from '../pages/group-form/group-form';
+import { GroupsList } from '../pages/groups-list/groups-list';
 import { ElementsForm } from '../pages/elements-form/elements-form';
+import { ElementsList } from '../pages/elements-list/elements-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +18,9 @@ import { ElementServiceProvider } from '../providers/element-service/element-ser
   declarations: [
     MyApp,
     GroupForm,
-    ElementsForm
+    ElementsForm,
+    ElementsList,
+    GroupsList
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { ElementServiceProvider } from '../providers/element-service/element-ser
   entryComponents: [
     MyApp,
     GroupForm,
-    ElementsForm
+    ElementsForm,
+    ElementsList,
+    GroupsList
   ],
   providers: [
     StatusBar,

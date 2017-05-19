@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Group Company</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>
+            Action
+        </ion-list-header>
+        <ion-item *ngFor="let group of groups">
+            <ion-thumbnail item-left>
+              <img src="../../assets/images/add-image.jpg"/>
+            </ion-thumbnail>
+            <h2>{{group.group}}</h2>
+            <button ion-button clear item-right (click)="openElementsListPage(group.id)">Elements</button>
+            <button ion-button clear item-right (click)="openElementsFormPage(group.id)">New elements</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -19,4 +19,12 @@ export class ElementServiceProvider extends ProviderFunctions{
       return this.saveField(url,body,options);
   }
 
+  list(group_id) {
+      let url = this.url + 'elements/list/' + group_id;
+      let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+      let options    = new RequestOptions({ headers: headers });
+      let body = '';
+      return this.retrieveList(url,body,options);
+  }
+
 }

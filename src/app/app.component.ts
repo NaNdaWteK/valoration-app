@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { GroupForm } from '../pages/group-form/group-form';
-import { ElementsForm } from '../pages/elements-form/elements-form';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +20,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Add Group', component: GroupForm },
-      { title: 'Add Elements', component: ElementsForm }
+      { title: 'Add Group', component: GroupForm }
     ];
 
   }

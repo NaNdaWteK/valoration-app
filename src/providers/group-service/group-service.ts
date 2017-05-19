@@ -19,4 +19,12 @@ export class GroupServiceProvider extends ProviderFunctions{
       return this.saveField(url,body,options);
   }
 
+  list(company_id) {
+      let url = this.url + 'groups/list/' + company_id;
+      let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+      let options    = new RequestOptions({ headers: headers });
+      let body = '';
+      return this.retrieveList(url,body,options);
+  }
+
 }

@@ -15,8 +15,15 @@ export abstract class ProviderFunctions {
                       .catch( this._errorMessage );
   }
 
+  retrieveList(url, body, options){
+      return this.http.post( url, body, options )
+                      .do( this._doResponse )
+                      .map( this._resultResponse )
+                      .catch( this._errorMessage );
+  }
+
   private _doResponse( res: Response) {
-      //console.log(res);
+      console.log(res);
   }
 
   private _resultResponse( res: Response ) {
@@ -24,6 +31,7 @@ export abstract class ProviderFunctions {
   }
 
   private _errorMessage( error: Response ) {
+      console.log(error);
       return Observable.throw( error.json().error || 'Server error' );
   }
 }
