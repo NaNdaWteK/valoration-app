@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Elements Form</ion-title>
+    <ion-title><img src="../../assets/images/logo.png"/></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,11 +15,10 @@
           Add one Element
           </ion-card-title>
               <ion-item>
-                <ion-icon name="ios-add-circle-outline" item-start></ion-icon>
                 <ion-input [(ngModel)]="value" type="text" value=""></ion-input>
               </ion-item>
           <button ion-button color="dark" outline (click)="submit()">Save</button>
       </ion-card-content>
     </ion-card>
-    <button ion-button block  (click)="openElementsListPage()">List of components</button>
+    <button ion-button block color="dark" large round>List of components</button>
 </ion-content>

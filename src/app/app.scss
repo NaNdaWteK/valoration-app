@@ -10,3 +10,22 @@
 .success .toast-message, .danger .toast-message {
     font-weight: bold;
 }
+.scroll-content {
+    overflow-y: auto !important;
+    background-color: #ccf0ff;;
+}
+.content-ios:not([no-bounce]) > .scroll-content::before, .content-ios:not([no-bounce]) > .scroll-content::after {
+    position: unset;
+    overflow-y: auto;
+}
+
+.button-wp-dark, .button-ios-dark, .button-md-dark{
+     background-color: #4d4d4f;
+}
+.toolbar-background-ios, .toolbar-background-wp, .toolbar-background-md, .statusbar {
+    background-color: rgba(72, 138, 255, 0.73);
+}
+.menu-items{
+    background-color: skyblue;
+    color:#fff;
+}

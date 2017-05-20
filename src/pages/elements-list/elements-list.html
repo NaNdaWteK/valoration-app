@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Group Elements</ion-title>
+    <ion-title><img src="../../assets/images/logo.png"/></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,12 +13,11 @@
         <ion-list-header>
             Group Elements List
         </ion-list-header>
-        <ion-item *ngFor="let element of elements">
+        <ion-item text-wrap *ngFor="let element of elements">
             <ion-thumbnail item-left>
               <img src="../../assets/images/add-image.jpg"/>
             </ion-thumbnail>
-            <h2>{{element.element}}</h2>
-            <button ion-button clear item-right>View</button>
+            <p>{{element.element}}</p>
         </ion-item>
     </ion-list>
 </ion-content>

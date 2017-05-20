@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Group Company</ion-title>
+    <ion-title><img src="../../assets/images/logo.png"/></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,15 +11,15 @@
 <ion-content padding>
     <ion-list>
         <ion-list-header>
-            Action
+            Groups
         </ion-list-header>
-        <ion-item *ngFor="let group of groups">
-            <ion-thumbnail item-left>
-              <img src="../../assets/images/add-image.jpg"/>
-            </ion-thumbnail>
+        <ion-item text-wrap *ngFor="let group of groups">
             <h2>{{group.group}}</h2>
-            <button ion-button clear item-right (click)="openElementsListPage(group.id)">Elements</button>
-            <button ion-button clear item-right (click)="openElementsFormPage(group.id)">New elements</button>
+            <div>
+                <button ion-button outline item-right (click)="openElementsListPage(group.id)">Elements</button>
+                <button ion-button outline item-right (click)="openElementsFormPage(group.id)">New elements</button>
+                <img right src="../../assets/images/logo.png"/>
+            </div>
         </ion-item>
     </ion-list>
 </ion-content>
