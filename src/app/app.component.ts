@@ -13,14 +13,14 @@ export class MyApp {
 
   rootPage: any = GroupForm;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, id: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Add Group', component: GroupForm }
+      { title: 'Add Group', component: GroupForm, id: "groupForm" }
     ];
 
   }
