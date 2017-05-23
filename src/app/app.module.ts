@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GroupServiceProvider } from '../providers/group-service/group-service';
 import { ElementServiceProvider } from '../providers/element-service/element-service';
+import { EnvironmentsModule } from './environment-variables/environment-variables.module.ts';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ElementServiceProvider } from '../providers/element-service/element-ser
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    EnvironmentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

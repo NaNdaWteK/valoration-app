@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ProviderFunctions } from '../../app/providers';
-
+import { EnvVariables } from '../../app/environment-variables/environment-variables.token';
 
 @Injectable()
 export class GroupServiceProvider extends ProviderFunctions{
-    private url: string = 'http://localhost:4567/';
-    constructor(public http: Http) {
+    constructor(public http: Http,
+                @Inject(EnvVariables) private envVariables) 
+    {
         super(http);
     }
 
   save(group) {
-      let url = this.url + 'add-group/save';
+      let url = this.envVariables.baseUrl + 'add-group/save';
       let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options    = new RequestOptions({ headers: headers });
       let body = `group=${group}`;
@@ -20,7 +21,7 @@ export class GroupServiceProvider extends ProviderFunctions{
   }
 
   list(company_id) {
-      let url = this.url + 'groups/list/' + company_id;
+      let url = this.envVariables.baseUrl + 'groups/list/' + company_id;
       let headers    = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options    = new RequestOptions({ headers: headers });
       let body = '';
