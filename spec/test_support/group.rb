@@ -8,20 +8,19 @@ module Page
       validate!
     end
 
-    def fill_form
-      sleep(0.5)
-      page.execute_script("document.getElementById('group').textContent='Dishes'");
+    def fill(content)
+      fill_in('group', with: content)
     end
 
     def save
       find('#submit').click
     end
 
-    def has_success_submit?
+    def check?
       has_content?('Dishes')
     end
 
-    def has_button_list?
+    def list?
       has_css?('#groupsList')
     end
 
